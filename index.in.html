@@ -13,6 +13,11 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
         <style>
+        .emph {
+            color: #ffae00; /* Tomato color for emphasis */
+            font-weight: bold; /* Makes the text bold */
+            <!-- font-style: italic; /* Adds an italic style to the text */ -->
+        }
          #sticky-sidebar {
              position:fixed;
              max-width: 20%;
@@ -22,22 +27,19 @@
              width : 100%;
          }
          body {
-             height     : 100%;
-             width      : 100%;
-             font-family: 'Roboto', sans-serif;
-             font-weight: 300;
-             padding-top: 4.5rem;
-         }
-         b {
-             font-weight: 500;
-         }
-         h1, h2, h3, .navbar-brand {
-             font-family: 'Ubuntu', serif;
-             font-weight: 600;
-             color: #8B4513;
-         }
-         h3 {
-         }
+            height: 100%;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif; /* Fallback from Arial to Helvetica */
+            padding-top: 4.5rem;
+        }
+        b {
+            font-weight: bold; /* Ensuring bold text is consistently bold */
+        }
+        h1, h2, h3, .navbar-brand {
+            font-family: Arial, Helvetica, sans-serif; /* Using Arial or Helvetica for headers and navbar */
+            font-weight: bold; /* Bold font weight for emphasis */
+            color: #8B4513; /* Saddle Brown color for text */
+        }
          a {
              color: #A0522D;
          }
@@ -65,6 +67,32 @@
          .bg-light {
              background-color: #ffffff !important;
          }
+         .project-section {
+            display: flex;
+            align-items: flex-start; /* Align items at the start of the flex container */
+            gap: 20px; /* Adds space between the image and the text */
+            margin-bottom: 10px;
+        }
+        
+        .project-image {
+            width: 150px; /* Adjust the width as necessary */
+            height: 110px; /* Maintain aspect ratio */
+        }
+        
+        .project-text {
+            flex: 1; /* Allows the text block to fill the remaining space */
+        }
+        
+        .project-text dt {
+            margin-bottom: 0.2em; /* Reduce space below the title */
+        }
+        
+        .project-text .role-description {
+            font-style: italic; /* Set italics for the role description */
+            margin-bottom: 0em; /* Reduce space below this paragraph to bring the next line closer */
+        }
+
+        
         </style>
     </head>
 
@@ -133,6 +161,13 @@
                                     
                                 </p>
                             </dd>
+                        <dt>🌟 Research assistant at <a href="https://www.kavrakilab.org/">Kavraki Lab</a></dt>
+                            <dd>
+                                <p>I will be working with Professor Lydia Kavraki as a research assistant this summer, focusing on using Large Language Models (LLMs) for task and motion planning.
+                                    
+                                </p>
+                            </dd>
+
                         <dt>🤖 Robotic Task Planning in Collaboration with <a href="https://www.houstonmethodist.org/">Methodist</a></dt>
                             <dd>
                                 <p>I am actively engaged in a project dedicated to the development of constrained planning strategies 
@@ -148,6 +183,69 @@
                     </div>
                     <hr>
 
+
+                    <a class="anchor" id="projects"></a>
+                    <h1>Selected Projects 🦾</h1>
+                    <div style="padding: 10px">
+                        <div class="project-section">
+                            <img src="images/LLMFix.png" alt="Multi-Arm Planning" class="project-image">
+                            <div class="project-text">
+                                <dt><span class="emph">Ongoing:</span> Long Horizon Task and Motion Planning with Constraints</dt>
+                                <p class="role-description">Supervised by Prof. Lydia Kavraki, 2024</p>
+                                <!-- <ul>
+                                    <li>Designing a high level coordinator to speed up multi-arm planning tasks</li>
+                                </ul> -->
+                            </div>
+                        </div>
+                        <div class="project-section">
+                            <img src="images/MultiArm.png" alt="Multi-Arm Planning" class="project-image">
+                            <div class="project-text">
+                                <dt><span class="emph">Ongoing:</span> Multi-Arm Motion Planning</dt>
+                                <p class="role-description">Supervised by Prof. Lydia Kavraki and Kaiyu Hang, Rice University, 2024</p>
+                                <!-- <ul>
+                                    <li>Designing a high level coordinator to speed up multi-arm planning tasks</li>
+                                </ul> -->
+                            </div>
+                        </div>
+                        <div class="project-section">
+                            <img src="images/f1tenth.jpg" alt="Autonomous Driving and Robotic Racing" class="project-image">
+                            <div class="project-text">
+                                <dt>Autonomous Driving and Robotic Racing</dt>
+                                <p class="role-description">Leader, Lehigh University, 2022</p>
+                                <ul>
+                                    <li>Developed an algorithm capable of running at high speed, detecting racing cars, and autonomously bypassing them.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-section">
+                            <img src="images/drone.png" alt="Underwater Robotics Development" class="project-image">
+                            <div class="project-text">
+                                <dt>Autonomous Underwater Robotics Development</dt>
+                                <p class="role-description">Software Team Leader, Lehigh University, 2021</p>
+                                <ul>
+                                    <li>Led a team of 14 focusing on <span class="emph">object detection</span> and <span class="emph">path planning</span> for the underwater robotics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    
+                    <!-- <h1>Work Experience</h1>
+                    <a class="anchor" id="teaching"></a> -->
+
+                    <a class="anchor" id="awards"></a>
+                    <h1>Awards 🌟</h1>
+                    <div style="padding: 10px">
+                    <dl>
+                        <dd><b>Donald J. Hillman Memorial Award: </b> Given annually to a <span class="emph">single</span> senior whose accomplishment in AI is judged to be most outstanding at Lehigh University.</dd>
+                        <dd><b>Certificate of Recognition for Outstanding Academic Achievement: </b> This certificate is awarded to undergraduate students who have achieved high academic standing.</dd>
+                        <dd><b>Dean's List for ALL 4 Years</b></dd>
+                    </dl>
+                    </div>
+                    <hr>
+
+
                     <a class="anchor" id="education"></a>
                     <h1>Education 🧗</h1>
                     <div style="padding: 10px">
@@ -155,57 +253,23 @@
                         <dd>
                             <ul>
                                 <li>Master in Computer Science</li>
-                                <li>Current GPA: <b>4.0</b>/4.0</li>
+                                <li>Current GPA: <span class="emph">4.0</span>/4.0</li>
                             </ul>
                         </dd>
                         <dt>Lehigh University | 2019 - 2023</dt>
                             <ul>
                                 <li>B.S. in Mathematics and Computer Science</li>
-                                <li>GPA: <b>3.86</b>/4.0</li>
+                                <li>GPA: <span class="emph">3.86</span>/4.0</li>
                             </ul>
                     </div>
+                    <hr>
 
-                    <hr>
-                    <a class="anchor" id="awards"></a>
-                    <h1>Awards 🌟</h1>
-                    <div style="padding: 10px">
-                    <dl>
-                        <dd><b>Donald J. Hillman Memorial Award: </b> Given annually to a <b>single</b> senior whose accomplishment in AI is judged to be most outstanding at Lehigh University.</dd>
-                        <dd><b>Certificate of Recognition for Outstanding Academic Achievement: </b> This certificate is awarded to undergraduate students who have achieved high academic standing.</dd>
-                        <dd><b>Dean's List for ALL 4 Years</b></dd>
-                    </dl>
-                    </div>
-                    <hr>
-                    <a class="anchor" id="projects"></a>
-                    <h1>Projects 🦾</h1>
-                    <a class="anchor" id="career"></a>
-                    <div style="padding: 10px">
-                        <dl>
-                            <dt>Ongoing: Multi-Arm Constrainted Task and Motion Planning</dt>
-                            <ul>
-                                <li>Designing a high level coordinator to speed up multi-arm planning tasks</li>
-                            </ul>
-                            <dt>Autonomous Driving and Robotic Racing</dt>
-                            <ul>
-                                <li>Developed an algorithm capable of dynamically switching between the optimal path and a bypass route upon detecting an opponent's car obstructing the path during a race.</li>
-                                <li>Fine-tuned the parameters of a particle filter to enhance localization accuracy</li>
-                            </ul>
-                            <dt>Autonomous Underwater Robotics Development</dt>
-                            <ul>
-                                <li>Led a team of 14 focusing on object detection and path planning for the underwater robotics</li>
-                                <li>Improved object detection accuracy and efficiency by transitioning from YOLO v3 to YOLO v8</li>
-                            </ul>
-                        </dl>
-                    </div>
-                    <hr>
-                    <!-- <h1>Work Experience</h1>
-                    <a class="anchor" id="teaching"></a> -->
                     <h1>Teaching Experience 🧑‍🏫</h1>
                     <div style="padding: 10px">
                         <dl>
-                            <dd>TA for ECE 450: Internet of Things | Spring 2023</dd>
-                            <dd><b>Head TA</b> for ENGR 005: <b>Autonomous Driving and Robotic Racing</b> | Fall 2022</dd>
-                            <dd>TA for CSE 498: <b>Computer Vision</b> | Spring 2022</dd>
+                            <dd>TA for ECE 450: Internet of Things (Graduate Level) | Spring 2023</dd>
+                            <dd>Head TA for ENGR 005: <span class="emph">Autonomous Driving and Robotic Racing</span> | Fall 2022</dd>
+                            <dd>TA for CSE 498: <span class="emph">Computer Vision</span> (Graduate Level) | Spring 2022</dd>
                             <dt>Class Grader</dt>
                             <ul>
                                 <li>CSE140: Foundations of Discrete Structures and Algorithms: Spring & Fall 2022, Spring 2023</li>
@@ -234,7 +298,7 @@
                         <div class="col-6 col-xs-12 col-md-12 col-lg-12 col-xl-12">
                             <h2>Contact📡</h2>
                             <dl class="row">
-                                <dd class="col-10">Weihang.Guo<i class="fa fa-at fa-xs"></i>rice.edu<br></dd>
+                                <dd class="col-10">wg25<i class="fa fa-at fa-xs"></i>rice.edu<br></dd>
                             </dl>
                             <dl class="row">
                                 <dt class="col-3"><a href="https://www.linkedin.com/in/weihang-guo-95519a206/"><i class="fab fa-linkedin fa-2x"></i></a></dt>
