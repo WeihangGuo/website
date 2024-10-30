@@ -7,6 +7,7 @@
         <meta name="author" content="Weihang Guo">
         <title>Weihang Guo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:600i" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"></script>
@@ -20,6 +21,14 @@
         gtag('config', 'G-5QG5L0ZSJQ');
         </script>
 
+<script>
+// JavaScript to automatically set the last updated date
+document.addEventListener('DOMContentLoaded', function() {
+    const lastUpdateElement = document.getElementById('last-update');
+    const currentDate = new Date();
+    lastUpdateElement.textContent = currentDate.toLocaleString();
+});
+</script>
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
         <style>
@@ -50,11 +59,14 @@
             font-weight: bold; /* Bold font weight for emphasis */
             color: #8B4513; /* Saddle Brown color for text */
         }
+        h1 {
+            font-size: 1.5em; /* 2em font size for h1 headers */
+        }
          a {
-             color: #A0522D;
+             color: #ff7700;
          }
          a:hover {
-             color: #F4A460;
+             color: #f7a45b;
              text-decoration: none;
          }
          a.anchor {
@@ -145,13 +157,13 @@
                     <h1>Weihang Guo</h1>
                     <div style="padding: 10px">
                         <p>
-                            I am a master's student at Rice University advised by Prof. <a href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia Kavraki</a>. My research centers on <u>long-horizon task and motion planning</u>. I am inspired by scenarios like “making a cup of tea in every room,” where the robot operates under <u>partial observability</u>, faces <u>uncertainty in transitions</u>, and <u>no domain-specific model</u>, combined with non-trivial motion planning challenges. The robot must efficiently generate task plans grounded in motion, recover from failures, and autonomously explore within its known environment. I am thrilled to explore the valuable potential that lies at the intersection of learning-based and model-based approaches.
+                            I am a master's student at Rice University advised by Prof. <a href="https://profiles.rice.edu/faculty/lydia-e-kavraki" target="_blank" rel="noopener noreferrer">Lydia Kavraki</a>. My research centers on <u>long-horizon task and motion planning</u>. I am inspired by scenarios like “making a cup of tea in every room,” where the robot operates under <u>partial observability</u>, faces <u>uncertainty in transitions</u>, and <u>no domain-specific model</u>, combined with non-trivial motion planning challenges. The robot must efficiently generate task plans grounded in motion, recover from failures, and autonomously explore within its known environment. I am thrilled to explore the valuable potential that lies at the intersection of learning-based and model-based approaches. I am also honored to collaborate with Prof. <a href="https://zkingston.com/" target="_blank" rel="noopener noreferrer">Zak Kingston</a> and Prof. <a href="https://hangkaiyu.github.io/" target="_blank" rel="noopener noreferrer">Kaiyu Hang</a>.
                         </p>
                         <p>
-                            I obtained my B.S. in Mathematics and Computer Science from Lehigh University under the supervision of Prof. <a href="https://engineering.lehigh.edu/faculty/yahong-rosa-zheng">Rosa Zheng</a>. There, I worked on perception and control, led an autonomous racing team, and co-founded the Lehigh Underwater Robotics team. Those works earned me the <u>Donald J. Hillman Memorial Award</u>, which is awarded to the most outstanding senior in AI at Lehigh University.
+                            I obtained my B.S. in Mathematics and Computer Science from Lehigh University under the supervision of Prof. <a href="https://engineering.lehigh.edu/faculty/yahong-rosa-zheng" target="_blank" rel="noopener noreferrer">Rosa Zheng</a>. There, I worked on perception and control, led an autonomous racing team, and co-founded the Lehigh Underwater Robotics team. Those works earned me the <u>Donald J. Hillman Memorial Award</u>, which is awarded to the most outstanding senior in AI at Lehigh University.
                         </p>
                         
-                            I enjoy rock climbing, road trips, listening to <a href="https://twitter.com/nmixx_official">K-pop</a>.
+                            I enjoy rock climbing, road trips, listening to <a href="https://twitter.com/nmixx_official" target="_blank" rel="noopener noreferrer">K-pop</a>.
                         </p>
                         <!-- <p>
                             More details can be found in my <a href="cv_kingston.pdf">curriculum vitae <i class="fa fa-file-pdf"></i></a>.
@@ -176,9 +188,9 @@
                         <!-- <dt>🤖 Robotic Task Planning in Collaboration with <a href="https://www.houstonmethodist.org/">Methodist</a></dt>
                             <dd>
                                 <p>I am engaged in a multi-robot motion planning project under the guidance of Professors <a href="https://hangkaiyu.github.io/">Kaiyu Hang</a> and <a href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia Kavraki</a>, in collaboration with Methodist.</p>                            </dd> -->
-                        <dt>🥳 <a href="https://engineering.lehigh.edu/news/article/lehigh-student-team-wins-f1tenth-virtual-race-icra-2022">2nd Price on International Autonomous Racing Competition</a></dt>
+                        <dt>🥳 <a href="https://engineering.lehigh.edu/news/article/lehigh-student-team-wins-f1tenth-virtual-race-icra-2022" target="_blank" rel="noopener noreferrer">2nd Price on International Autonomous Racing Competition</a></dt>
                             <dd>
-                                <p>I led a team of four members to win 2nd place at the <a href="https://f1tenth.org/">F1TENTH Competition Head-to-Head Race</a> at ICRA 2022.</p>
+                                <p>I led a team of four members to win 2nd place at the <a href="https://f1tenth.org/" target="_blank" rel="noopener noreferrer">F1TENTH Competition Head-to-Head Race</a> at ICRA 2022.</p>
                             </dd>
                     </dl>
                     </div>
@@ -191,24 +203,22 @@
                         <div class="project-section">
                             <img src="images/LLMFix.png" alt="Multi-Arm Planning" class="project-image">
                             <div class="project-text">
-                                <dt> Task and Motion Planning with LLMs </dt>
-                                <p class="role-description">Supervised by Prof. Lydia Kavraki and Prof Zak Kingston, Rice University, 2024</p>
+                                <dt> CaStL: Constraints as Specifications through LLM Translation for Long-Horizon Task and Motion Planning </dt>
+                                <p class="role-description"><b>Weihang Guo</b>, Zachary Kingston, and Lydia E. Kavraki</p>
 
+                                
                                 <ul>
-                                    <li>The preprint will soon be available on arXiv.</li>
+                                    <li>Submitted to ICRA 2025, with <a " href="https://arxiv.org/abs/2410.22225" target="_blank" rel="noopener noreferrer">a pre-print on arXiv</a></li>
                                 </ul>
-                                <!-- <ul>
-                                    <li>Designing a high level coordinator to speed up multi-arm planning tasks</li>
-                                </ul> -->
                             </div>
                         </div>
                         <div class="project-section">
                             <img src="images/MultiArm.png" alt="Multi-Robot Motion Planning" class="project-image">
                             <div class="project-text">
-                                <dt>Multi-Robot Motion Planning</dt>
-                                <p class="role-description">Supervised by Prof. Lydia Kavraki, Prof Zak Kingston, and Kaiyu Hang, Rice University, 2024</p>
+                                <dt>Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation</dt>
+                                <p class="role-description"> <b>Weihang Guo</b>, Zachary Kingston, Kaiyu Hang, and Lydia E. Kavraki</p>
                                 <ul>
-                                    <li>The preprint will soon be available on arXiv.</li>
+                                    <li>The preprint will be available on arXiv soon.</li>
                                 </ul>
                             </div>
                         </div>
@@ -216,7 +226,7 @@
                             <img src="images/f1tenth.gif" alt="Autonomous Driving and Robotic Racing" class="project-image">
                             <div class="project-text">
                                 <dt>Autonomous Driving and Robotic Racing</dt>
-                                <p class="role-description">Leader, Instructed by Prof. Rosa Zheng, Lehigh University, 2022</p>
+                                <p class="role-description">Team Leader, Instructed by Prof. Rosa Zheng</p>
                                 <ul>
                                     <li>Proposed and implemented an autonomous system that can detect opponent vehicles and switch between overtaking and optimal path; Implemented and tuned a PID control; Utilized particle filter and Google Cartographer for localization and SLAM.</li>
                                 </ul>
@@ -226,7 +236,7 @@
                             <img src="images/drone.gif" alt="Underwater Robotics Development" class="project-image">
                             <div class="project-text">
                                 <dt>Autonomous Underwater Robotics Development</dt>
-                                <p class="role-description">Software Team Leader, Instructed by Prof. Rosa Zheng, Lehigh University, 2021</p>
+                                <p class="role-description">Software Team Leader, Instructed by Prof. Rosa Zheng</p>
                                 <ul>
                                     <li>Collected and augmented data on underwater left/right turn signs, and tuned a YOLO model to detect them; Deployed the model on Nvidia Jetson Nano.</li>
                                 </ul>
@@ -309,9 +319,9 @@
                                 <dd class="col-10">wg25<i class="fa fa-at fa-xs"></i>rice.edu<br></dd>
                             </dl>
                             <dl class="row">
-                                <dt class="col-3"><a href="https://www.linkedin.com/in/weihang-guo-95519a206/"><i class="fab fa-linkedin fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="https://twitter.com/Weihang404"><i class="fab fa-twitter fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="https://github.com/WeihangGuo"><i class="fab fa-github fa-2x"></i></a></dt>
+                                <dt class="col-3"><a href="https://www.linkedin.com/in/weihang-guo-95519a206/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-2x"></i></a></dt>
+                                <dt class="col-3"><a href="https://twitter.com/Weihang404" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-2x"></i></a></dt>
+                                <dt class="col-3"><a href="https://github.com/WeihangGuo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-2x"></i></a></dt>
                             </dl>
                         </div>
                     </div>
@@ -321,7 +331,7 @@
         <div class="container">
             <footer>
                 <p></p>
-                <p style="line-height:normal;">Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a></p>
+                <p style="line-height:normal;">Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a>; last updated on: <span id="last-update"></span></p>
             </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
