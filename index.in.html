@@ -21,14 +21,16 @@
         gtag('config', 'G-5QG5L0ZSJQ');
         </script>
 
-<script>
-// JavaScript to automatically set the last updated date
-document.addEventListener('DOMContentLoaded', function() {
-    const lastUpdateElement = document.getElementById('last-update');
-    const currentDate = new Date();
-    lastUpdateElement.textContent = currentDate.toLocaleString();
-});
-</script>
+        <script>
+        // JavaScript to automatically set the last updated date
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var lastModified = new Date(document.lastModified);
+            // Display the time part in HH:MM:SS format
+            document.getElementById("last-update").innerHTML = lastModified.toISOString();
+
+        });
+        </script>
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
         <style>
@@ -331,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <footer>
                 <p></p>
-                <p style="line-height:normal;">Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a>; last updated on: <span id="last-update"></span></p>
+                <p style="line-height:normal;">Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a> | last updated on: <span id="last-update"></span></p>
             </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
