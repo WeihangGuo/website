@@ -1,365 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-        <meta name="description" content="Weihang Guo">
-        <meta name="author" content="Weihang Guo">
-        <title>Weihang Guo</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <script defer src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"></script>
+  <title>Profile Card</title>
+  <style>
+    /* Use Palatino everywhere */
+    body {
+      font-family: 'Palatino Linotype','Palatino',serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden; /* avoid scrollbars from fixed footer */
+    }
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:600i" rel="stylesheet">
-        <script defer src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QG5L0ZSJQ"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    .profile-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
 
-        gtag('config', 'G-5QG5L0ZSJQ');
-        </script>
+    .profile-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
 
-        <script>
-        // JavaScript to automatically set the last updated date
-        document.addEventListener('DOMContentLoaded', function() {
+    .profile-card .name {
+      font-size: 1.5rem;
+      margin: 0;
+    }
 
-            var lastModified = new Date(document.lastModified);
-            // Display the time part in HH:MM:SS format
-            document.getElementById("last-update").innerHTML = lastModified.toISOString();
+    .profile-card .affiliation {
+      font-size: 1rem;
+      color: #555;
+      margin: 0.25rem 0 1rem;
+    }
 
-        });
-        </script>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    .profile-card .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .profile-card .social-row a {
+      font-size: 1.75rem;
+      color: #666;
+      transition: color .25s;
+    }
+    /* brand-color hover */
+    .fa-github:hover         { color: #333;    }
+    .fa-google-scholar:hover { color: #4285F4; }
+    .fa-envelope:hover       { color: #D44638; }
 
-        <style>
-        .emph {
-            color: #000000; /* Tomato color for emphasis */
-            font-weight: bold; /* Makes the text bold */
-            <!-- font-style: italic; /* Adds an italic style to the text */ -->
-        }
-         #sticky-sidebar {
-             position:fixed;
-             max-width: 20%;
-         }
-         html {
-             height: 100%;
-             width : 100%;
-         }
-         body {
-            height: 100%;
-            width: 100%;
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fallback from Arial to Helvetica */
-            padding-top: 4.5rem;
-        }
-        b {
-            font-weight: bold; /* Ensuring bold text is consistently bold */
-        }
-        h1, h2, h3, .navbar-brand {
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Using Arial or Helvetica for headers and navbar */
-            font-weight: bold; /* Bold font weight for emphasis */
-            color: #8B4513; /* Saddle Brown color for text */
-        }
-        h1 {
-            font-size: 1.5em; /* 2em font size for h1 headers */
-        }
-         a {
-             color: #ff7700;
-         }
-         a:hover {
-             color: #f7a45b;
-             text-decoration: none;
-         }
-         a.anchor {
-             display: block;
-             position: relative;
-             top: -70px;
-             visibility: hidden;
-         }
-         .title {
-             font-size: 110%;
-             font-style: italic;
-         }
-         .book {
-             font-size: 110%;
-         }
-         well {
-             margin: 0 auto;
-             width: 100%;
-         }
-         .bg-light {
-             background-color: #ffffff !important;
-         }
-         .project-section {
-            display: flex;
-            align-items: flex-start; /* Align items at the start of the flex container */
-            gap: 20px; /* Adds space between the image and the text */
-            margin-bottom: 10px;
-        }
-        
-        .project-image {
-            width: 150px; /* Adjust the width as necessary */
-            height: 110px; /* Maintain aspect ratio */
-        }
-        
-        .project-text {
-            flex: 1; /* Allows the text block to fill the remaining space */
-        }
-        
-        .project-text dt {
-            margin-bottom: 0.2em; /* Reduce space below the title */
-        }
-        
-        .project-text .role-description {
-            font-style: italic; /* Set italics for the role description */
-            margin-bottom: 0em; /* Reduce space below this paragraph to bring the next line closer */
-        }
+    /*  ————— widget at bottom center —————  */
+    .widget {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      /* if ClustrMaps writes an <a> or <img> inside, it'll be centered */
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
 
-        
-        </style>
-    </head>
+  <div class="profile-card">
+    <img src="./me.png" alt="Weihang Guo">
+    <p class="name">Weihang Guo</p>
+    <p class="affiliation">Kavraki Lab, Rice University</p>
+    <div class="social-row">
+      <a href="https://github.com/WeihangGuo" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=wMvaTUMAAAAJ&hl=en" target="_blank" rel="noopener">
+        <i class="fa-brands fa-google-scholar"></i>
+      </a>
+      <a href="mailto:wg25@rice.edu" target="_blank" rel="noopener">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
 
-    <body data-spy="scroll" data-target=".navbar">
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-            <a class="navbar-brand" href="#" style="font-size: 1.5em; color: #8B4513">Weihang Guo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link current" href="#about"><i class="fa fa-child"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#news"><i class="fa fa-newspaper"></i> News</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#education"><i class="fa fa-school"></i> Education</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#awards"><i class="fa fa-award"></i> Honors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects"><i class="fa fa-code"></i> Projects</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#career"><i class="fa fa-industry"></i> Career</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#teaching"><i class="fa fa-chalkboard"></i> Teaching</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-12 col-xs-8 col-md-9 col-lg-9 col-xl-10 order-last" style="border: 20px solid transparent;">
-                    <a class="anchor" id="about"></a>
-                    <h1>Weihang Guo</h1>
-                    <div style="padding: 10px">
-                        <p>
-                            I am an incoming Ph.D. student at Rice University advised by <a href="https://profiles.rice.edu/faculty/lydia-e-kavraki" target="_blank" rel="noopener noreferrer">Lydia Kavraki</a>. My research centers on <u>long-horizon task and motion planning</u> in real-world execution. I am also honored to collaborate with <a href="https://zkingston.com/" target="_blank" rel="noopener noreferrer">Zak Kingston</a> and <a href="https://hangkaiyu.github.io/" target="_blank" rel="noopener noreferrer">Kaiyu Hang</a>.
-                        </p>
-                        <p>
-                            I obtained my Master's degree in Computer Science from Rice and a B.S. in Mathematics and Computer Science from Lehigh University under the supervision of <a href="https://engineering.lehigh.edu/faculty/yahong-rosa-zheng" target="_blank" rel="noopener noreferrer">Rosa Zheng</a>. There, I worked on perception and control, led an autonomous racing team, and co-founded the Lehigh Underwater Robotics team. These efforts earned me the <u>Donald J. Hillman Memorial Award</u>, which is given to the most outstanding senior in AI at Lehigh University.
-                        </p>
-                            I enjoy rock climbing, road trips, listening to <a href="https://twitter.com/nmixx_official" target="_blank" rel="noopener noreferrer">K-pop</a>.
-                        </p>
-                        <!-- <p>
-                            More details can be found in my <a href="cv_kingston.pdf">curriculum vitae <i class="fa fa-file-pdf"></i></a>.
-                        </p> -->
-                    </div>
-                    <hr>
-                    <a class="anchor" id="news"></a>
-                    <h1>News</h1>
-                    <div style="padding: 10px">
+  <!-- wrap your ClustrMaps script in a div.widget -->
+  <div class="widget">
+    <script
+      type="text/javascript"
+      id="clstr_globe"
+      src="//clustrmaps.com/globe.js?d=eBjbYTL1RqmkSFJwGutODsKLUvbWDQu-Hb-3Heommv8">
+    </script>
+  </div>
 
-                        <ul>
-                            <li>
-                                <b>Feb 2025:</b> I am hired as a research engineer at Kavraki Lab, working on OMPL Python bindings.  
-                            </li>
-                            <li>
-                                <b>Jan 2025:</b> Excited to share that my paper 
-                                <a href="https://arxiv.org/abs/2410.22225" target="_blank" rel="noopener noreferrer">
-                                    CaStL: Constraints as Specifications through LLM Translation for Long-Horizon Task and Motion Planning
-                                </a> 
-                                has been accepted to ICRA 2025!
-                            </li>
-                            <!-- <li>
-                                I led a team of four members to win 2nd place at the 
-                                <a href="https://f1tenth.org/" target="_blank" rel="noopener noreferrer">
-                                    F1TENTH Competition Head-to-Head Race
-                                </a> 
-                                at ICRA 2022.
-                            </li> -->
-                        </ul>
-
-                    </div>
-                    <hr>
-
-
-                    <a class="anchor" id="projects"></a>
-                    <h1>Selected Projects</h1>
-                    <div style="padding: 10px">
-                        <div class="project-section">
-                            <img src="images/LLMFix.png" alt="Multi-Arm Planning" class="project-image">
-                            <div class="project-text">
-                                <dt> CaStL: Constraints as Specifications through LLM Translation for Long-Horizon Task and Motion Planning </dt>
-                                <p class="role-description"><b>Weihang Guo</b>, Zachary Kingston, and Lydia E. Kavraki</p>
-
-                                
-                                <ul>
-                                    <li>Accepted to ICRA 2025. <a " href="https://arxiv.org/abs/2410.22225" target="_blank" rel="noopener noreferrer">Pre-print on arXiv</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="project-section">
-                            <img src="images/MultiArm.png" alt="Multi-Robot Motion Planning" class="project-image">
-                            <div class="project-text">
-                                <dt>Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation</dt>
-                                <p class="role-description"> <b>Weihang Guo</b>, Zachary Kingston, Kaiyu Hang, and Lydia E. Kavraki</p>
-                                <ul>
-                                    <li>Submitted to RA-L, with <a " href="https://arxiv.org/abs/2412.00366" target="_blank" rel="noopener noreferrer">a pre-print on arXiv</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="project-section">
-                            <img src="images/f1tenth.gif" alt="Autonomous Driving and Robotic Racing" class="project-image">
-                            <div class="project-text">
-                                <dt>Autonomous Driving and Robotic Racing</dt>
-                                <p class="role-description">Team Leader, Instructed by Prof. Rosa Zheng</p>
-                                <ul>
-                                    <li>Proposed and implemented an autonomous system that can detect opponent vehicles and switch between overtaking and optimal path; Implemented and tuned a PID control; Utilized particle filter and Google Cartographer for localization and SLAM.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="project-section">
-                            <img src="images/drone.gif" alt="Underwater Robotics Development" class="project-image">
-                            <div class="project-text">
-                                <dt>Autonomous Underwater Robotics Development</dt>
-                                <p class="role-description">Software Team Leader, Instructed by Prof. Rosa Zheng</p>
-                                <ul>
-                                    <li>Collected and augmented data on underwater left/right turn signs, and tuned a YOLO model to detect them; Deployed the model on Nvidia Jetson Nano.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <hr>
-                    
-                    <!-- <h1>Work Experience</h1>
-                    <a class="anchor" id="teaching"></a> -->
-
-                    <a class="anchor" id="awards"></a>
-                    <h1>Selected Honors</h1>
-                    <div style="padding: 10px">
-                    <dl>
-                        <dd><b>Jason Chahin Innovation Scholar</b>, Rice University</b></dd>
-                        <dd><b>Donald J. Hillman Memorial Award in AI</b>, Lehigh University</dd>
-                        <dd><b>Mountaintop Research Fellowship</b>, Lehigh University</dd>
-                        <dd><b>Certificate of Recognition for Outstanding Academic Achievement</b>, Lehigh University</dd>
-                        <dd><b>2nd place at 10th F1TENTH Autonomous Grand Prix</b>, ICRA 2022</dd>
-                        <dd><b>Blue Robotics Special Awards</b>, Robosub 2022</dd>
-                    </dl>
-                    </div>
-                    <hr>
-
-
-                    <!-- <a class="anchor" id="education"></a>
-                    <h1>Education 🧗</h1>
-                    <div style="padding: 10px">
-                    <dt>Rice University | 2023 - now</dt>
-                        <dd>
-                            <ul>
-                                <li>Master in Computer Science</li>
-                                <li>Current GPA: <span class="emph">4.0</span>/4.0</li>
-                            </ul>
-                        </dd>
-                        <dt>Lehigh University | 2019 - 2023</dt>
-                            <ul>
-                                <li>B.S. in Mathematics and Computer Science</li>
-                                <li>GPA: <span class="emph">3.86</span>/4.0</li>
-                            </ul>
-                    </div>
-                    <hr> -->
-
-                    <a class="anchor" id="teaching"></a>
-                    <h1>Teaching Experience</h1>
-                    <div style="padding: 10px">
-                        <dl>
-                            <dd>TA for COMP 450: Algorithmic Robotics | Fall 2024</dd>
-                            <dd>TA for ECE 450: Internet of Things (Graduate Level) | Spring 2023</dd>
-                            <dd>Head TA for ENGR 005: Autonomous Driving and Robotic Racing | Fall 2022</dd>
-                            <dd>TA for CSE 498: Computer Vision (Graduate Level) | Spring 2022</dd>
-                            <dt>Class Grader</dt>
-                            <ul>
-                                <li>CSE140: Foundations of Discrete Structures and Algorithms: Spring & Fall 2022, Spring 2023</li>
-                                <li>CSE202: Computer Organization and Architecture: Spring 2022</li>
-                            </ul>
-                            
-                        </dl>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-4 col-md-3 col-lg-3 col-xl-2">
-                    <div class="row">
-                        <div class="col-3 col-xs-0 col-md-0 col-lg-0 col-xl-0">
-                        </div>
-                        <div class="col-6 col-xs-12 col-md-12 col-lg-12 col-xl-12">
-                            <p>
-                                <img src   = "./me.jpg"
-                                     class = "img-fluid full-width"
-                                     style = "box-shadow: 2px 4px 4px 0px"
-                                     alt   = "A picture of me from February 2020.">
-                            </p>
-                        </div>
-                        <div class="col-3 col-xs-0 col-md-0 col-lg-0 col-xl-0">
-                        </div>
-                        <div class="col-3 col-xs-0 col-md-0 col-lg-0 col-xl-0">
-                        </div>
-                        <div class="col-6 col-xs-12 col-md-12 col-lg-12 col-xl-12">
-                            <!-- <h2>Contact</h2> -->
-                            <!-- <dl class="row">
-                                <dd class="col-10">wg25<i class="fa fa-at fa-xs"></i>rice.edu<br></dd>
-                            </dl> -->
-                            <dl class="row">
-                                <dt class="col-3"><a href="https://www.linkedin.com/in/weihang-guo-95519a206/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="https://twitter.com/Weihang404" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="https://github.com/WeihangGuo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="https://scholar.google.com/citations?user=wMvaTUMAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-scholar fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="mailto:wg25@rice.edu" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-envelope fa-2x"></i></a></dt>
-                                <dt class="col-3"><a href="./CV_WeihangGuo.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file fa-2x"></i></a></dt>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <footer>
-                <p></p>
-                <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
-                    <div style="width: 50px; height: auto; overflow: hidden;">
-                        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=EeGT-Tlz_HMIXRAKprJ0fN3DlkZE1zzRVnUGhVyP9F4"></script>
-                    </div>
-                </div>
-                <!-- <p style="line-height:normal;">Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a> | last updated on: <span id="last-update"></span></p> -->
-                <p style="line-height:normal;">
-                    Website design inspired by <a href="https://zkingston.com/">Zak Kingston</a>
-                  </p>
-                  
-                  <style>
-                    #clustrmaps-widget, /* For the standard ClustrMaps widget */
-                    #clustrmaps,         /* For the globe widget */
-                    .clustrmaps-widget { /* Additional class, just in case */
-                      display: none;
-                    }
-                  </style>                
-                        
-            </footer>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+</body>
 </html>
