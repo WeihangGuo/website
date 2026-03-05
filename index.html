@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     
   </head>
 <body>
@@ -69,97 +70,14 @@
     <!-- Publications -->
     <section class="section">
       <h2>Publications</h2>
-
-      <article class="pub">
-        <img class="pub-thumb" src="images/guo2024efficient.png" alt="paper thumbnail" />
-        <div class="pub-body">
-          <div class="pub-title">
-            Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation
-          </div>
-          <div class="pub-authors">
-            <strong>Weihang Guo</strong>, <a target="_blank" href="https://zkingston.com/">Zachary Kingston</a>,
-            <a target="_blank" href="https://hangkaiyu.github.io/">Kaiyu Hang</a>,
-            <a target="_blank" href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia E. Kavraki</a>
-          </div>
-          <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
-          <div class="pub-footer">
-            <div class="pub-links">
-              <a target="_blank" href="https://arxiv.org/abs/2412.00366">
-                <img src="https://img.shields.io/badge/arXiv-2412.00366-b31b1b.svg" alt="arXiv">
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="pub">
-        <img class="pub-thumb" src="images/guo2026omplbinding.png" alt="paper thumbnail" />
-        <div class="pub-body">
-          <div class="pub-title">Python Bindings for a Large C++ Robotics Library: The Case of OMPL</div>
-          <div class="pub-authors">
-            <strong>Weihang Guo</strong>, Theodoros Tyrovouzis,
-            <a target="_blank" href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia E. Kavraki</a>
-          </div>
-          <div class="pub-venue"><em>2026 IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026</div>
-          <div class="pub-footer">
-            <!-- <div class="pub-note">To appear.</div> -->
-            <div class="pub-links">
-              <a target="_blank" href="https://github.com/ompl/ompl">
-                <img src="https://img.shields.io/badge/GitHub-ompl%2Fompl-2ea44f.svg?logo=github" alt="GitHub">
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="pub">
-        <img class="pub-thumb" src="images/guo2025castl.gif" alt="paper thumbnail" />
-        <div class="pub-body">
-          <div class="pub-title">
-            CaStL: Constraints as Specifications Through LLM Translation for Long-Horizon Task and Motion Planning
-          </div>
-          <div class="pub-authors">
-            <strong>Weihang Guo</strong>, <a target="_blank" href="https://zkingston.com/">Zachary Kingston</a>,
-            <a target="_blank" href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia E. Kavraki</a>
-          </div>
-          <div class="pub-venue"><em>2025 IEEE International Conference on Robotics and Automation (ICRA)</em>, 2025</div>
-          <div class="pub-footer">
-            <div class="pub-links">
-              <a target="_blank" href="https://arxiv.org/abs/2410.22225">
-                <img src="https://img.shields.io/badge/arXiv-2410.22225-b31b1b.svg" alt="arXiv">
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
+      <div id="pubs-container"></div>
+    </section>
     </section>
 
     <!-- Preprints -->
-         <section class="section">
+    <section class="section">
       <h2>Preprints</h2>
-      <article class="pub">
-        <img class="pub-thumb" src="images/yan2025using.gif" alt="paper thumbnail" />
-        <div class="pub-body">
-          <div class="pub-title">
-            Using VLM Reasoning to Constrain Task and Motion Planning
-          </div>
-          <div class="pub-authors">
-            <a target="_blank" href="https://muyangyan.github.io/">Muyang Yan</a>, 
-            Miras Mengdibayev, Ardon Floros,
-            <strong>Weihang Guo</strong>, 
-            <a target="_blank" href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia E. Kavraki</a>,
-            <a target="_blank" href="https://zkingston.com/">Zachary Kingston</a>,
-            
-          </div>
-          <div class="pub-footer">
-            <div class="pub-links">
-              <a target="_blank" href="https://arxiv.org/abs/2510.25548">
-                <img src="https://img.shields.io/badge/arXiv-2510.25548-b31b1b.svg" alt="arXiv">
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
+      <div id="preprints-container"></div>
     </section>
     <!-- Talks -->
     <section class="section">
@@ -184,6 +102,148 @@
       <p>Copyright &copy; 2026 Weihang Guo. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- Dynamic Publication Rendering Script -->
+  <script>
+    const YAML_FILES = [
+      'data/guo2024efficient.yml',
+      'data/guo2026omplbinding.yml',
+      'data/guo2025castl.yml',
+      'data/yan2025using.yml'
+    ];
+    let coauthors = {};
+
+    async function loadData() {
+      // 1. Fetch and parse coauthor profiles
+      try {
+        const coauthorResponse = await fetch('data/00_coauthor_profile.yml');
+        const coauthorText = await coauthorResponse.text();
+        const profiles = jsyaml.load(coauthorText);
+        coauthors = profiles.reduce((acc, profile) => {
+          acc[profile.name] = profile.link;
+          return acc;
+        }, {});
+      } catch (err) {
+        console.error("Error loading coauthor profiles:", err);
+      }
+
+      // 2. Fetch and parse all publications
+      let publications = [];
+      let preprints = [];
+
+      for (const fileUrl of YAML_FILES) {
+        try {
+          const res = await fetch(fileUrl);
+          const text = await res.text();
+          const doc = jsyaml.load(text);
+          
+          if (doc.type === 'published') {
+            publications.push(doc);
+          } else if (doc.type === 'preprint') {
+            preprints.push(doc);
+          }
+        } catch (err) {
+          console.error(`Error loading ${fileUrl}:`, err);
+        }
+      }
+
+      // Optional: sort by year descending
+      const sortByYearDesc = (a, b) => (b.year || 0) - (a.year || 0);
+      publications.sort(sortByYearDesc);
+      preprints.sort(sortByYearDesc);
+
+      // Render them
+      renderPapers('pubs-container', publications);
+      renderPapers('preprints-container', preprints);
+    }
+
+    function renderPapers(containerId, papers) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      if (papers.length === 0) {
+        container.innerHTML = '<p style="color:var(--muted)">None currently listed.</p>';
+        return;
+      }
+
+      container.innerHTML = papers.map(paper => {
+        // Format authors: bold Weihang Guo, link coauthors
+        const authorHtml = paper.authors.map(author => {
+          if (author === "Weihang Guo") {
+            return `<strong>Weihang Guo</strong>`;
+          } else if (coauthors[author]) {
+            return `<a target="_blank" href="${coauthors[author]}">${author}</a>`;
+          }
+          return author;
+        }).join(", ");
+
+        const venueHtml = paper.venue ? `<div class="pub-venue"><em>${paper.venue}</em>, ${paper.year}</div>` : '';
+        const noteHtml = paper.note ? `<div class="pub-note">${paper.note}</div>` : '';
+
+        // Generate Links (Badges)
+        let linksHtml = '';
+        if (paper.links) {
+          if (paper.links.arxiv) {
+            linksHtml += `<a target="_blank" href="https://arxiv.org/abs/${paper.links.arxiv}">
+              <img src="https://img.shields.io/badge/arXiv-${paper.links.arxiv}-b31b1b.svg" alt="arXiv">
+            </a>\n`;
+          }
+          if (paper.links.github) {
+            linksHtml += `<a target="_blank" href="https://github.com/${paper.links.github}">
+              <img src="https://img.shields.io/badge/GitHub-${encodeURIComponent(paper.links.github)}-2ea44f.svg?logo=github" alt="GitHub">
+            </a>\n`;
+          }
+        }
+        
+        // Add dropdown toggles if abstract or bibtex exists
+        if (paper.abstract) {
+          linksHtml += `<a onclick="document.getElementById('abs-${paper.id}').style.display = document.getElementById('abs-${paper.id}').style.display === 'block' ? 'none' : 'block'">
+              <img src="https://img.shields.io/badge/Abstract-374151.svg" alt="Abstract">
+            </a>\n`;
+        }
+        if (paper.bibtex) {
+          linksHtml += `<a onclick="document.getElementById('bib-${paper.id}').style.display = document.getElementById('bib-${paper.id}').style.display === 'block' ? 'none' : 'block'">
+              <img src="https://img.shields.io/badge/BibTeX-374151.svg" alt="BibTeX">
+            </a>\n`;
+        }
+
+        // Generate Dropdown Content wrappers
+        let dropdownHtml = '';
+        if (paper.abstract) {
+          dropdownHtml += `
+          <div class="pub-dropdown" id="abs-${paper.id}">
+            <p><strong>Abstract:</strong> ${paper.abstract.replace(/\\n/g, '<br>')}</p>
+          </div>`;
+        }
+        if (paper.bibtex) {
+          dropdownHtml += `
+          <div class="pub-dropdown" id="bib-${paper.id}">
+<pre><code>${paper.bibtex.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+          </div>`;
+        }
+
+        return `
+      <article class="pub">
+        <img class="pub-thumb" src="${paper.image}" alt="paper thumbnail" onerror="this.src='images/favicon/android-chrome-192x192.png'" />
+        <div class="pub-body">
+          <div class="pub-title">${paper.title}</div>
+          <div class="pub-authors">${authorHtml}</div>
+          <div class="pub-footer">
+            ${venueHtml}
+            ${noteHtml}
+            <div class="pub-links">
+              ${linksHtml}
+            </div>
+          </div>
+          ${dropdownHtml}
+        </div>
+      </article>`;
+      }).join('');
+    }
+
+    // Initialize fetching when the DOM loads
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
 </body>
 
 </html>

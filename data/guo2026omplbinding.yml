@@ -1,0 +1,16 @@
+id: guo2026omplbinding
+title: "Python Bindings for a Large C++ Robotics Library: The Case of OMPL"
+type: published
+year: 2026
+venue: "2026 IEEE International Conference on Robotics and Automation (ICRA)"
+image: images/guo2026omplbinding.png
+authors:
+  - Weihang Guo
+  - Theodoros Tyrovouzis
+  - Lydia E. Kavraki
+links:
+  arxiv: null
+  github: ompl/ompl
+# note: "To appear."
+abstract: null
+bibtex: null

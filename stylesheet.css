@@ -135,6 +135,10 @@ a:hover{ opacity: 0.8; }
   background: #f9fafb;
 }
 
+.pub-body {
+  min-width: 0; /* Prevents flex/grid children from overflowing */
+}
+
 .pub-title{
   font-weight: 650;
   margin-bottom: 6px;
@@ -147,9 +151,9 @@ a:hover{ opacity: 0.8; }
 
 .pub-footer {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 4px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   margin-top: 4px;
 }
 
@@ -161,6 +165,31 @@ a:hover{ opacity: 0.8; }
 
 .pub-links a {
   text-decoration: none;
+  cursor: pointer;
+}
+
+.pub-dropdown {
+  display: none;
+  margin-top: 12px;
+  padding: 14px 18px;
+  background-color: var(--card); /* Match card background to blend in nicely */
+  border: 1px solid var(--border); /* Full border to contain it */
+  border-radius: 8px; /* Standard border radius */
+  font-size: 0.95rem;
+  color: var(--text);
+  width: 100%; /* Ensure it doesn't overflow */
+  box-sizing: border-box;
+}
+
+.pub-dropdown pre {
+  margin: 0;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+}
+
+.pub-dropdown p {
+  margin: 0;
 }
 
 /* ---------- Footer ---------- */

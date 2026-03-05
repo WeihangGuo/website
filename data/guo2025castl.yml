@@ -1,0 +1,23 @@
+id: guo2025castl
+title: "CaStL: Constraints as Specifications Through LLM Translation for Long-Horizon Task and Motion Planning"
+type: published
+year: 2025
+venue: "2025 IEEE International Conference on Robotics and Automation (ICRA)"
+image: images/guo2025castl.gif
+authors:
+  - Weihang Guo
+  - Zachary Kingston
+  - Lydia E. Kavraki
+links:
+  arxiv: 2410.22225
+  github: null
+note: null
+abstract: |
+  [Add your CaStL abstract text here...]
+bibtex: |
+  @inproceedings{guo2025castl,
+    title={CaStL: Constraints as Specifications Through LLM Translation for Long-Horizon Task and Motion Planning},
+    author={Guo, Weihang and Kingston, Zachary and Kavraki, Lydia E.},
+    booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)},
+    year={2025}
+  }
