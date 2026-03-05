@@ -15,5 +15,15 @@ links:
   arxiv: 2510.25548
   github: null
 note: null
-abstract: null
-bibtex: null
+abstract: |
+  In task and motion planning, high-level task planning is done over an abstraction of the world to enable efficient search in long-horizon robotics problems. However, the feasibility of these task-level plans relies on the downward refinability of the abstraction into continuous motion. When a domain's refinability is poor, task-level plans that appear valid may ultimately fail during motion planning, requiring replanning and resulting in slower overall performance. Prior works mitigate this by encoding refinement issues as constraints to prune infeasible task plans. However, these approaches only add constraints upon refinement failure, expending significant search effort on infeasible branches. We propose VIZ-COAST, a method of leveraging the common-sense spatial reasoning of large pretrained Vision-Language Models to identify issues with downward refinement a priori, bypassing the need to fix these failures during planning. Experiments on two challenging TAMP domains show that our approach is able to extract plausible constraints from images and domain descriptions, drastically reducing planning times and, in some cases, eliminating downward refinement failures altogether, generalizing to a diverse range of instances from the broader domain. 
+bibtex: |
+  @misc{yan2025using,
+    title={Using VLM Reasoning to Constrain Task and Motion Planning}, 
+    author={Muyang Yan and Miras Mengdibayev and Ardon Floros and Weihang Guo and Lydia E. Kavraki and Zachary Kingston},
+    year={2025},
+    eprint={2510.25548},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO},
+    url={https://arxiv.org/abs/2510.25548}, 
+  }

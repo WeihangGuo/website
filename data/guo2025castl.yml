@@ -13,11 +13,17 @@ links:
   github: null
 note: null
 abstract: |
-  [Add your CaStL abstract text here...]
+  Large Language Models (LLMs) have demonstrated remarkable ability in long-horizon Task and Motion Planning (TAMP) by translating clear and straightforward natural language problems into formal specifications such as the Planning Domain Definition Language (PDDL). However, real-world problems are often ambiguous and involve many complex constraints. In this paper, we introduce Constraints as Specifications through LLMs (CaStL), a framework that identifies constraints such as goal conditions, action ordering, and action blocking from natural language in multiple stages. CaStL translates these constraints into PDDL and Python scripts, which are solved using an custom PDDL solver. Tested across three PDDL domains, CaStL significantly improves constraint handling and planning success rates from natural language specification in complex scenarios. 
 bibtex: |
-  @inproceedings{guo2025castl,
-    title={CaStL: Constraints as Specifications Through LLM Translation for Long-Horizon Task and Motion Planning},
+  @INPROCEEDINGS{guo2025castl,
     author={Guo, Weihang and Kingston, Zachary and Kavraki, Lydia E.},
-    booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)},
-    year={2025}
+    booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)}, 
+    title={CaStL: Constraints as Specifications Through LLM Translation for Long-Horizon Task and Motion Planning}, 
+    year={2025},
+    volume={},
+    number={},
+    pages={11957-11964},
+    keywords={Constraint handling;Translation;Uncertainty;Large language models;Planning;Formal specifications;Robotics and automation},
+    doi={10.1109/ICRA55743.2025.11127555}
   }
+

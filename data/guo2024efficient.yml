@@ -12,12 +12,18 @@ authors:
 links:
   arxiv: 2412.00366
   github: null
-abstract: null
+abstract: |
+  Multi-robot motion planning for high degree-of-freedom manipulators in shared, constrained, and narrow spaces is a complex problem and essential for many scenarios such as construction, surgery, and more. Traditional coupled methods plan directly in the composite configuration space, which scales poorly; decoupled methods, on the other hand, plan separately for each robot but lack completeness. Hybrid methods that obtain paths from individual robots together require the enumeration of many paths before they can find valid composite solutions. This paper introduces Scheduling to Avoid Collisions (StAC), a hybrid approach that more effectively composes paths from individual robots by scheduling (adding stops and coordination motion along all paths) and generates paths that are likely to be feasible by using bidirectional feedback between the scheduler and motion planner for informed sampling. StAC uses 10 to 100 times fewer paths from the low-level planner than state-of-the-art hybrid baselines on challenging problems in manipulator cases. 
 bibtex: |
-  @article{guo2024efficient,
-    title={Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation},
-    author={Guo, Weihang and Kingston, Zachary and Hang, Kaiyu and Kavraki, Lydia E},
-    journal={IEEE Robotics and Automation Letters (RA-L)},
-    year={2026}, 
-    note={To be appear. }
+  @ARTICLE{guo2024efficient,
+    author={Guo, Weihang and Kingston, Zachary and Hang, Kaiyu and Kavraki, Lydia E.},
+    journal={IEEE Robotics and Automation Letters}, 
+    title={Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation}, 
+    year={2026},
+    volume={11},
+    number={4},
+    pages={4385-4392},
+    keywords={Robot kinematics;Collision avoidance;Schedules;Manipulators;Manifolds;System recovery;Multi-robot systems;End effectors;Trajectory;Timing;Multi-robot systems;constrained motion planning;motion and path planning;collision avoidance},
+    doi={10.1109/LRA.2026.3662639}
   }
+
