@@ -9,9 +9,18 @@ authors:
   - Theodoros Tyrovouzis
   - Lydia E. Kavraki
 links:
-  arxiv: null
+  arxiv: 2603.04668
   github: ompl/ompl
 # note: "To appear."
 abstract: |
   Python bindings are a critical bridge between high-performance C++ libraries and the flexibility of Python, enabling rapid prototyping, reproducible experiments, and integration with simulation and learning frameworks in robotics research. Yet, generating bindings for large codebases is a tedious process that creates a heavy burden for a small group of maintainers. In this work, we investigate the use of Large Language Models (LLMs) to assist in generating nanobind wrappers, with human experts kept in the loop. Our workflow mirrors the structure of the C++ codebase, scaffolds empty wrapper files, and employs LLMs to fill in binding definitions. Experts then review and refine the generated code to ensure correctness, compatibility, and performance. Through a case study on a large C++ motion planning library, we document common failure modes, including mismanaging shared pointers, overloads, and trampolines, and show how in-context examples and careful prompt design improve reliability. Experiments demonstrate that the resulting bindings achieve runtime performance comparable to legacy solutions. Beyond this case study, our results provide general lessons for applying LLMs to binding generation in large-scale C++ projects.
-bibtex: null
+bibtex: |
+  @misc{guo2026pythonbindingslargec,
+    title={Python Bindings for a Large C++ Robotics Library: The Case of OMPL}, 
+    author={Weihang Guo and Theodoros Tyrovouzis and Lydia E. Kavraki},
+    year={2026},
+    eprint={2603.04668},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO},
+    url={https://arxiv.org/abs/2603.04668}, 
+  }
