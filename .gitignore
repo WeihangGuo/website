@@ -1,3 +1,5 @@
 /pubgen.py
 /publications.bib
 .DS_Store
+.venv/
+__pycache__/
