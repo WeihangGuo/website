@@ -202,6 +202,10 @@ a:hover{ opacity: 0.8; }
   text-align: right;
 }
 
+.clustrmaps-wrap{
+  display: none;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 720px){
   .hero{
