@@ -87,8 +87,11 @@
               <a target="_blank" href="https://arxiv.org/abs/2605.29301">
                 <img src="https://img.shields.io/badge/arXiv-2605.29301-b31b1b.svg" alt="arXiv">
               </a>
+              <a target="_blank" href="https://ompl.kavrakilab.org/">
+                <img src="https://img.shields.io/badge/website-ompl-428bca.svg" alt="Website">
+              </a>
               <a target="_blank" href="https://github.com/ompl/ompl">
-                <img src="https://img.shields.io/github/stars/ompl/ompl?logo=github&amp;label=GitHub%20stars&amp;color=2ea44f" alt="GitHub stars">
+                <img src="https://img.shields.io/badge/GitHub-ompl%2Fompl-2ea44f.svg?logo=github" alt="GitHub">
               </a>
               <a onclick="document.getElementById('abs-guo2026ompl2').style.display = document.getElementById('abs-guo2026ompl2').style.display === 'block' ? 'none' : 'block'">
                 <img src="https://img.shields.io/badge/Abstract-374151.svg" alt="Abstract">
@@ -161,7 +164,7 @@
                 <img src="https://img.shields.io/badge/arXiv-2603.04668-b31b1b.svg" alt="arXiv">
               </a>
               <a target="_blank" href="https://github.com/ompl/ompl">
-                <img src="https://img.shields.io/github/stars/ompl/ompl?logo=github&amp;label=GitHub%20stars&amp;color=2ea44f" alt="GitHub stars">
+                <img src="https://img.shields.io/badge/GitHub-ompl%2Fompl-2ea44f.svg?logo=github" alt="GitHub">
               </a>
               <a onclick="document.getElementById('abs-guo2026omplbinding').style.display = document.getElementById('abs-guo2026omplbinding').style.display === 'block' ? 'none' : 'block'">
                 <img src="https://img.shields.io/badge/Abstract-374151.svg" alt="Abstract">
@@ -375,9 +378,14 @@
               <img src="https://img.shields.io/badge/arXiv-${paper.links.arxiv}-b31b1b.svg" alt="arXiv">
             </a>\n`;
           }
+          if (paper.links.website) {
+            linksHtml += `<a target="_blank" href="${paper.links.website}">
+              <img src="https://img.shields.io/badge/website-ompl-428bca.svg" alt="Website">
+            </a>\n`;
+          }
           if (paper.links.github) {
             linksHtml += `<a target="_blank" href="https://github.com/${paper.links.github}">
-              <img src="https://img.shields.io/github/stars/${paper.links.github}?logo=github&amp;label=GitHub%20stars&amp;color=2ea44f" alt="GitHub stars">
+              <img src="https://img.shields.io/badge/GitHub-${encodeURIComponent(paper.links.github)}-2ea44f.svg?logo=github" alt="GitHub">
             </a>\n`;
           }
         }

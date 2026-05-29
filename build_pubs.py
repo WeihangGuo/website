@@ -21,6 +21,7 @@ import html
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 try:
     import yaml
@@ -82,11 +83,19 @@ def render_links(paper: dict) -> str:
             f'              </a>'
         )
 
+    website = links.get("website")
+    if website:
+        out.append(
+            f'<a target="_blank" href="{html.escape(website)}">\n'
+            f'                <img src="https://img.shields.io/badge/website-ompl-428bca.svg" alt="Website">\n'
+            f'              </a>'
+        )
+
     gh = links.get("github")
     if gh:
         out.append(
             f'<a target="_blank" href="https://github.com/{gh}">\n'
-            f'                <img src="https://img.shields.io/github/stars/{gh}?logo=github&amp;label=GitHub%20stars&amp;color=2ea44f" alt="GitHub stars">\n'
+            f'                <img src="https://img.shields.io/badge/GitHub-{quote(gh, safe="")}-2ea44f.svg?logo=github" alt="GitHub">\n'
             f'              </a>'
         )
 
