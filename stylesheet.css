@@ -94,6 +94,7 @@ a:hover{ opacity: 0.8; }
   offset-rotate: 0deg;
   animation: cover-flow var(--flow-duration) linear infinite paused;
   animation-delay: var(--flow-delay);
+  animation-direction: reverse;
 }
 .cover-shade{
   position: absolute;
