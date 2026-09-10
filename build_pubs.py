@@ -135,9 +135,10 @@ def render_paper(paper: dict, coauthors: dict[str, str]) -> str:
     if paper.get("type") == "preprint":
         footer_parts.append('<div class="pub-venue"><em>Under review</em></div>')
     elif paper.get("venue"):
+        publication_status = "to appear" if paper.get("type") == "accepted" else paper["year"]
         footer_parts.append(
             f'<div class="pub-venue"><em>{html.escape(paper["venue"])}</em>, '
-            f'{paper["year"]}</div>'
+            f'{publication_status}</div>'
         )
     if paper.get("note"):
         footer_parts.append(f'<div class="pub-note">{paper["note"]}</div>')

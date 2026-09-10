@@ -1,7 +1,8 @@
 id: guo2026ompl2
 title: "The Open Motion Planning Library 2.0"
-type: preprint
+type: accepted
 year: 2026
+venue: "IEEE Robotics & Automation Magazine"
 image: images/ompl-vamp-combined.gif
 authors:
   - Weihang Guo
