@@ -64,29 +64,16 @@ a:hover{ opacity: 0.8; }
   position: absolute;
   inset: -12% -10%;
   display: grid;
+  grid-template-columns: repeat(4, var(--tile-width));
   grid-template-rows: repeat(4, minmax(0, 1fr));
   gap: var(--tile-gap);
   transform: rotate(-7deg) scale(1.08);
   opacity: calc(1 - var(--cover-fade, 0));
   pointer-events: none;
 }
-.cover-row{
-  display: flex;
-  width: max-content;
-  min-height: 0;
-  will-change: transform;
-}
-.cover.has-animation .cover-row{ animation: cover-drift var(--row-duration) linear infinite paused; }
-.cover.has-animation .cover-row:nth-child(even){ animation-direction: reverse; }
-.cover-group{
-  display: flex;
-  flex: none;
-  gap: var(--tile-gap);
-  padding-right: var(--tile-gap);
-}
 .cover-tile{
-  flex: 0 0 var(--tile-width);
   width: var(--tile-width);
+  min-height: 0;
   overflow: hidden;
   border-radius: 5px;
   background: #d8dce1;
@@ -97,7 +84,17 @@ a:hover{ opacity: 0.8; }
   height: 100%;
   object-fit: cover;
 }
-.cover-tile--contain img{ object-fit: contain; }
+.cover.has-animation .cover-tile{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--tile-height);
+  offset-path: var(--cover-path);
+  offset-anchor: center;
+  offset-rotate: 0deg;
+  animation: cover-flow var(--flow-duration) linear infinite paused;
+  animation-delay: var(--flow-delay);
+}
 .cover-shade{
   position: absolute;
   inset: 0;
@@ -145,11 +142,11 @@ a:hover{ opacity: 0.8; }
   outline: 3px solid #2563eb;
   outline-offset: 5px;
 }
-.cover.is-playing .cover-row{ animation-play-state: running; }
+.cover.is-playing .cover-tile{ animation-play-state: running; }
 #about{ scroll-margin-top: 28px; }
-@keyframes cover-drift{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
+@keyframes cover-flow{
+  from{ offset-distance: 0%; }
+  to{ offset-distance: 100%; }
 }
 @keyframes cover-reveal{
   from{ opacity: 0; transform: translateY(12px); }
