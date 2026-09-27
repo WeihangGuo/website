@@ -158,7 +158,8 @@ a:hover{ opacity: 0.8; }
   .cover .hero{ display: flex; flex-direction: column; padding: 22px; gap: 20px; }
   .cover .avatar-container{ order: -1; flex-direction: row; justify-content: space-between; width: 100%; }
   .cover .avatar{ width: 80px; height: 80px; }
-  .cover .links{ margin: 0; gap: 12px; }
+  .cover .links{ margin: 0; gap: 10px; }
+  .cover .links-separator{ display: none; }
   .cover .links a{ display: grid; place-items: center; min-width: 28px; min-height: 44px; }
   .cover .name{ font-size: clamp(1.75rem, 8.5vw, 2.375rem); }
   .cover .hero-text p:last-child{ margin-bottom: 0; }
@@ -228,7 +229,7 @@ a:hover{ opacity: 0.8; }
 .links {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   margin-top: 10px;
   font-size: 20px;
 }
