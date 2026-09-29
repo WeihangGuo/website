@@ -261,6 +261,12 @@ a:hover{ opacity: 0.8; }
   letter-spacing: -0.01em;
 }
 
+.section-note{
+  margin: -6px 0 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
 .list{
   margin: 0;
   padding-left: 18px;
