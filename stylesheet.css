@@ -18,9 +18,12 @@ html, body{
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Newsreader", "Charter", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
   line-height: 1.6;
 }
+
+b, strong{ font-weight: 600; }
 
 a{
   color: inherit;
@@ -187,6 +190,7 @@ a:hover{ opacity: 0.8; }
 .name{
   margin: 0 0 10px 0;
   font-size: 38px;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -252,6 +256,7 @@ a:hover{ opacity: 0.8; }
 
 .section h2{
   font-size: 20px;
+  font-weight: 500;
   margin: 0 0 12px 0;
   letter-spacing: -0.01em;
 }
@@ -291,7 +296,7 @@ a:hover{ opacity: 0.8; }
 }
 
 .pub-title{
-  font-weight: 650;
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
