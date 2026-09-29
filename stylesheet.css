@@ -268,6 +268,35 @@ a:hover{ opacity: 0.8; }
 }
 .list li{ margin: 6px 0; }
 
+/* ---------- Honors ---------- */
+#honors{ scroll-margin-top: 28px; }
+.honors-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.honors-list li{
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 9px 0;
+  border-top: 1px solid var(--border);
+}
+.honors-list li > div{ min-width: 0; }
+.honor-institution{
+  display: block;
+  color: var(--muted);
+  font-size: .98rem;
+}
+.honors-list time{
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: .9375rem;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Publications ---------- */
 .pub{
   display: grid;
@@ -379,4 +408,9 @@ a:hover{ opacity: 0.8; }
     width: 100%;
     height: 180px;
   }
+}
+
+@media (max-width: 640px){
+  .honors-list li{ flex-direction: column; gap: 2px; }
+  .honors-list time{ margin-left: 0; }
 }
