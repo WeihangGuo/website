@@ -133,7 +133,8 @@ def render_paper(paper: dict, coauthors: dict[str, str]) -> str:
 
     footer_parts: list[str] = []
     if paper.get("type") == "preprint":
-        footer_parts.append('<div class="pub-venue"><em>Under review</em></div>')
+        status = html.escape(paper.get("status") or "Under review")
+        footer_parts.append(f'<div class="pub-venue"><em>{status}</em></div>')
     elif paper.get("venue"):
         publication_status = "to appear" if paper.get("type") == "accepted" else paper["year"]
         footer_parts.append(
@@ -165,10 +166,11 @@ def render_paper(paper: dict, coauthors: dict[str, str]) -> str:
     dropdown_html = ("\n          " + "\n          ".join(dropdowns)) if dropdowns else ""
 
     image = html.escape(paper.get("image", "images/favicon/android-chrome-192x192.png"))
+    image_class = "pub-thumb pub-thumb-contain" if paper.get("image_fit") == "contain" else "pub-thumb"
 
     return (
         f'<article class="pub">\n'
-        f'        <img class="pub-thumb" src="{image}" alt="paper thumbnail" '
+        f'        <img class="{image_class}" src="{image}" alt="paper thumbnail" '
         f'onerror="this.src=\'images/favicon/android-chrome-192x192.png\'" />\n'
         f'        <div class="pub-body">\n'
         f'          <div class="pub-title">{html.escape(paper["title"])}</div>\n'

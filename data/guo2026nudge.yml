@@ -1,0 +1,14 @@
+id: guo2026nudge
+title: "Zero-Shot Reactive Obstacle Avoidance for Generative Robot Policies"
+type: preprint
+status: "arXiv preprint, 2026"
+year: 2026
+image: images/guo2026nudge.webp
+image_fit: contain
+authors:
+  - Weihang Guo
+  - Lydia E. Kavraki
+links:
+  arxiv: "2609.35231"
+abstract: |
+  We propose NUDGE (Nudge Update via Differentiable GEometry), a training-free obstacle-avoidance procedure that can be incorporated in any robot policy based on diffusion or flow matching, including diffusion policies and vision-language-action models. Our work injects gradients from a signed distance field, a function returning each point's distance to the nearest obstacle, into the policy at inference time to steer it away from obstacles. It supports any common action parameterization, from absolute or relative joint poses to end-effector poses, through a differentiable joint-trajectory decoder. Experiments show that NUDGE preserves the policy's task distribution and runs reactively in real time.

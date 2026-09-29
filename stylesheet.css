@@ -326,6 +326,11 @@ a:hover{ opacity: 0.8; }
   background: #f9fafb;
 }
 
+.pub-thumb-contain{
+  object-fit: contain;
+  background: #fff;
+}
+
 .pub-body {
   min-width: 0; /* Prevents flex/grid children from overflowing */
 }
