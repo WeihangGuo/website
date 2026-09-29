@@ -326,7 +326,9 @@ a:hover{ opacity: 0.8; }
   background: #f9fafb;
 }
 
-.pub-thumb-contain{
+.pub-thumb.pub-thumb-contain{
+  width: 100%;
+  height: auto;
   object-fit: contain;
   background: #fff;
 }
