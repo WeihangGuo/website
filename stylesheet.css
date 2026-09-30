@@ -304,6 +304,38 @@ a:hover{ opacity: 0.8; }
 }
 
 /* ---------- Publications ---------- */
+.pub-filters{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.pub-filter{
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pub-filter:hover{ color: var(--text); }
+.pub-filter[aria-pressed="true"]{
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: #c7b979;
+}
+
+.pub-filter:focus-visible{
+  outline: 2px solid #a28e3e;
+  outline-offset: 4px;
+}
+
+#pubs-container[data-view="selected"] > .pub:not(.pub-highlight){ display: none; }
+
 .pub{
   display: grid;
   grid-template-columns: 200px 1fr;
