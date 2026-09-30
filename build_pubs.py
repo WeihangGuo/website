@@ -55,18 +55,36 @@ def load_papers() -> list[dict]:
     return papers
 
 
-def format_authors(authors: list[str], coauthors: dict[str, str]) -> str:
+def format_authors(
+    authors: list[str],
+    coauthors: dict[str, str],
+    equal_contributors: list[str] | None = None,
+    mentors: list[str] | None = None,
+) -> str:
+    equal_contributors = equal_contributors or []
+    mentors = mentors or []
     parts = []
     for author in authors:
         if author == ME:
-            parts.append(f"<strong>{html.escape(ME)}</strong>")
+            author_html = f"<strong>{html.escape(ME)}</strong>"
         elif author in coauthors:
-            parts.append(
+            author_html = (
                 f'<a target="_blank" href="{html.escape(coauthors[author])}">'
                 f'{html.escape(author)}</a>'
             )
         else:
-            parts.append(html.escape(author))
+            author_html = html.escape(author)
+        if author in equal_contributors:
+            author_html += (
+                '<sup class="author-marker" title="Equal contribution" '
+                'aria-label="Equal contribution">*</sup>'
+            )
+        if author in mentors:
+            author_html += (
+                '<sup class="author-marker" title="Mentoring" '
+                'aria-label="Mentoring">†</sup>'
+            )
+        parts.append(author_html)
     return ", ".join(parts)
 
 
@@ -128,7 +146,12 @@ def render_links(paper: dict) -> str:
 
 def render_paper(paper: dict, coauthors: dict[str, str]) -> str:
     pid = paper["id"]
-    authors_html = format_authors(paper["authors"], coauthors)
+    authors_html = format_authors(
+        paper["authors"],
+        coauthors,
+        paper.get("equal_contributors"),
+        paper.get("mentors"),
+    )
     links_html = render_links(paper)
 
     footer_parts: list[str] = []

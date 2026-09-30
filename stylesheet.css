@@ -347,6 +347,13 @@ a:hover{ opacity: 0.8; }
   font-size: 0.98rem;
 }
 
+.author-marker{
+  margin-left: .1em;
+  font-size: .75em;
+  line-height: 0;
+  vertical-align: super;
+}
+
 .pub-footer {
   display: flex;
   flex-direction: column;
