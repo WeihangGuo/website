@@ -3,8 +3,8 @@ title: "Scaling Video Generation for Reasoning: At What Cost?"
 type: preprint
 status: "Under review"
 year: 2026
-image: images/guo2026scalingvideo.webp
-image_fit: contain
+image: images/guo2026scalingvideo.gif
+image_fit: cover
 authors:
   - Weihang Guo
   - Xiaoyu Wu
