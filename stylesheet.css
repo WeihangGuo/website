@@ -317,6 +317,11 @@ a:hover{ opacity: 0.8; }
   box-shadow: 0 1px 0 rgba(17, 24, 39, 0.02);
 }
 
+.pub-highlight{
+  background: #f8f5e7;
+  border-color: #e6dfbf;
+}
+
 .pub-thumb{
   width: 200px;
   height: 140px;

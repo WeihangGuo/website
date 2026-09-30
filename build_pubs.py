@@ -190,9 +190,10 @@ def render_paper(paper: dict, coauthors: dict[str, str]) -> str:
 
     image = html.escape(paper.get("image", "images/favicon/android-chrome-192x192.png"))
     image_class = "pub-thumb pub-thumb-contain" if paper.get("image_fit") == "contain" else "pub-thumb"
+    article_class = "pub pub-highlight" if paper.get("highlight") else "pub"
 
     return (
-        f'<article class="pub">\n'
+        f'<article class="{article_class}">\n'
         f'        <img class="{image_class}" src="{image}" alt="paper thumbnail" '
         f'onerror="this.src=\'images/favicon/android-chrome-192x192.png\'" />\n'
         f'        <div class="pub-body">\n'
