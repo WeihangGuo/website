@@ -11,8 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&amp;display=swap">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260929-publication-filter">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260930-research-marker-underline">
     <script src="cover.js" defer></script>
+    <script src="research-tooltips.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     
@@ -52,7 +53,10 @@
 
           <p>
             My research interests include high-performance robotic systems, agentic robotics for long-horizon planning, and video generation.
-            I aim to build hierarchical robotic systems that combine multimodal agents for high-level reasoning and alignment with video-based action models for execution.
+            I aim to build hierarchical robotic systems that combine multimodal agents for
+            <button class="research-keyword" type="button" aria-describedby="research-reasoning-tip">high-level reasoning</button>
+            and <button class="research-keyword" type="button" aria-describedby="research-alignment-tip">alignment</button>
+            with <button class="research-keyword" type="button" aria-describedby="research-action-tip">video-based action models</button> for execution.
           </p>
 
           <p>
@@ -511,6 +515,10 @@
       </div>
     </footer>
   </div>
+
+  <div class="research-tooltip" id="research-reasoning-tip" role="tooltip" hidden>Task decomposition, spatial reasoning, and task planning.</div>
+  <div class="research-tooltip" id="research-alignment-tip" role="tooltip" hidden>Symbolic representations, preference alignment, and efficient agent–embodiment interaction.</div>
+  <div class="research-tooltip" id="research-action-tip" role="tooltip" hidden>Learning video and action representations.</div>
 
   <!-- Dynamic Publication Rendering Script -->
   <script>
