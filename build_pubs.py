@@ -101,6 +101,14 @@ def render_links(paper: dict) -> str:
             f'              </a>'
         )
 
+    project = links.get("project")
+    if project:
+        out.append(
+            f'<a target="_blank" rel="noopener noreferrer" href="{html.escape(project)}">\n'
+            f'                <img src="https://img.shields.io/badge/Project_Page-428bca.svg" alt="Project Page">\n'
+            f'              </a>'
+        )
+
     website = links.get("website")
     if website:
         out.append(

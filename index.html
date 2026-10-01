@@ -148,6 +148,9 @@
               <a target="_blank" href="https://arxiv.org/abs/2609.36599">
                 <img src="https://img.shields.io/badge/arXiv-2609.36599-b31b1b.svg" alt="arXiv">
               </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://weihangguo.github.io/scaling-video-reasoning/">
+                <img src="https://img.shields.io/badge/Project_Page-428bca.svg" alt="Project Page">
+              </a>
               <a onclick="document.getElementById('abs-guo2026scalingvideo').style.display = document.getElementById('abs-guo2026scalingvideo').style.display === 'block' ? 'none' : 'block'">
                 <img src="https://img.shields.io/badge/Abstract-374151.svg" alt="Abstract">
               </a>
@@ -633,6 +636,11 @@
           if (paper.links.arxiv) {
             linksHtml += `<a target="_blank" href="https://arxiv.org/abs/${paper.links.arxiv}">
               <img src="https://img.shields.io/badge/arXiv-${paper.links.arxiv}-b31b1b.svg" alt="arXiv">
+            </a>\n`;
+          }
+          if (paper.links.project) {
+            linksHtml += `<a target="_blank" rel="noopener noreferrer" href="${paper.links.project}">
+              <img src="https://img.shields.io/badge/Project_Page-428bca.svg" alt="Project Page">
             </a>\n`;
           }
           if (paper.links.website) {
