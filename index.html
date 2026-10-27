@@ -178,6 +178,9 @@
               <a target="_blank" href="https://arxiv.org/abs/2609.36364">
                 <img src="https://img.shields.io/badge/arXiv-2609.36364-b31b1b.svg" alt="arXiv">
               </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://nicholas0228.github.io/blog/compress-to-remember/">
+                <img src="https://img.shields.io/badge/Blog-428bca.svg" alt="Blog">
+              </a>
               <a onclick="document.getElementById('abs-wu2026pacc').style.display = document.getElementById('abs-wu2026pacc').style.display === 'block' ? 'none' : 'block'">
                 <img src="https://img.shields.io/badge/Abstract-374151.svg" alt="Abstract">
               </a>
@@ -647,6 +650,11 @@
           if (paper.links.project) {
             linksHtml += `<a target="_blank" rel="noopener noreferrer" href="${paper.links.project}">
               <img src="https://img.shields.io/badge/Project_Page-428bca.svg" alt="Project Page">
+            </a>\n`;
+          }
+          if (paper.links.blog) {
+            linksHtml += `<a target="_blank" rel="noopener noreferrer" href="${paper.links.blog}">
+              <img src="https://img.shields.io/badge/Blog-428bca.svg" alt="Blog">
             </a>\n`;
           }
           if (paper.links.website) {
